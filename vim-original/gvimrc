@@ -1,0 +1,41 @@
+if has('gui_running')
+
+    " turn off bliking cursor in normal mode
+    set gcr=n:blinkon0
+
+    "set transparency=10
+    set encoding=utf-8
+
+    "Fontface and size
+    "set guifont=Courier:h12
+    "set guifont=Consolas:h13
+    "set guifont=Envy\ Code\ R:h13
+    "set guifont=Anonymous\ Pro:h15
+
+    " have error messages red on white (rather than the other way around, which
+    " isn't very readable)
+    highlight ErrorMsg guibg=White guifg=Red
+
+    " default windows size
+    set columns=150
+    set lines=50
+
+    " Color 
+    "set background=light
+    "set background=dark
+    "color peaksea 
+    "color zenburn 
+    "colorscheme xcodelike
+
+    " Number of allowed tabs in a window
+    set tabpagemax=100
+
+    " The toolbar is ugly and doesn't do very much. Turn it off.
+    set guioptions-=T
+
+    " Use text prompts instead of dialog boxes:
+    set guioptions+=c
+    set gtl=%t gtt=%F
+    
+end
+

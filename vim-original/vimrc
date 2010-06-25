@@ -1,0 +1,243 @@
+
+" Use Vim features instead of being limited to Vi features
+set nocompatible
+let g:loaded_matchparen= 1 
+" ============================================================
+" GENERAL MAPPINGS 
+" ============================================================
+
+" NOTE: This has to be set before any mappings are configured.
+let mapleader = ","
+
+" ============================================================
+" BUFFER SETTINGS 
+" ============================================================
+
+" When closing the tab, remove the buffer
+set hidden
+
+" use <C-b> to go to the buffer explorer 
+" (requires the .vim/plugin/bufexplore.vim extension)
+map <C-b> \bs
+imap <C-b> <Esc>\bs
+
+set history=1000 " keep a longer history 
+
+"Do not generate backup files (that's what git is for)
+set nobackup
+
+" ============================================================
+" MacVim SPECIFIC SETTINGS
+" ============================================================
+
+let macvim_hig_shift_movement = 1
+
+" ============================================================
+" DISPLAY SETTINGS 
+" ============================================================
+
+set number " Show line numbers
+set laststatus=2 " Always display the status line
+set showcmd " show the partially typed command on the status line
+set showmode " show the current mode on the status line
+
+" Pimped up status line 
+" (type h:statusline to see what these codes mean)
+set statusline=%<%f%h%m%r%=%y\ \ [%b\ 0x%B]\ \ %l,%c%V\ %P
+
+"The following will make tabs and trailing spaces visible when requested:
+set listchars=tab:>-,trail:·,eol:$
+"nmap <leader>s :set nolist!<CR>
+
+" Switch from dark to light background
+function! ToggleBackground()
+    if &background == 'light' | set background=dark
+    else | set background=light
+    endif
+endfunction
+map <F4> :call ToggleBackground()<CR> 
+
+" ============================================================
+" SCROLL SETTINGS
+" ============================================================
+
+"Scroll the viewport faster
+"<C-e> and <C-y> scroll the viewport a single line. To speed this up:
+nnoremap <C-e> 3<C-e>
+nnoremap <C-y> 3<C-y>
+
+set scrolloff=3 " scroll by 3 lines when going out the current visible window
+
+" ============================================================
+" SEARCHAND REPLACE SETTINGS 
+" ============================================================
+
+set gdefault " assume the /g flag on :s substitutions to replace all matches in a line
+set incsearch  " show match as search proceeds
+set ignorecase " case insensitive
+set smartcase  " use case if any caps used 
+set hlsearch   " highlight search terms 
+
+" map key to toggle highliting of search results
+nmap <silent> <leader>h :nohl<CR>
+
+" ============================================================
+" INDENTATION SETTINGS 
+" ============================================================
+
+" Recommended indentation settings
+set tabstop=4     " tabs are at proper location
+set expandtab     " don't use actual tab character (ctrl-v)
+set shiftwidth=4  " indenting is 4 spaces
+set autoindent    " turns it on
+set smartindent   " does the right thing (mostly) in programs
+set shiftround    " always use multiples of shiftwidth
+
+" ============================================================
+" SYNTAX SETTINGS 
+" ============================================================
+
+syntax on
+filetype on
+filetype plugin on
+filetype indent on
+
+" ============================================================
+" COLEMAK MAPPINGS
+" ============================================================
+source ~/.vim/colemak-mappings.vim
+" Scroll up and down without moving the cursor
+map <C-h> <C-y>
+map <C-k> <C-e>
+" ============================================================
+" MAPPINGS FOR INSERT MODE
+" ============================================================
+
+" Map Shift-Space to exit insert mode
+inoremap <S-Space> <Esc>
+
+" Exit insert mode and save the buffer
+" (just fails silently if there is no name for the file yet)
+inoremap <C-s> <Esc>:w<CR>
+
+" Shift+Enter for TextMate-like new line under
+inoremap <S-CR> <Esc>o
+
+set backspace=start,indent,eol
+
+" The following mappings attempt to make insert mode 
+" behave more like a common Mac OS X text control.
+
+imap <M-BS> <C-w>
+
+" ============================================================
+" MAPPINGS FOR NORMAL MODE
+" ============================================================
+
+" search and relpace word under cursor (leaves cursor on command in order for
+" the user to complete the relpace part and options)
+:nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
+
+" put the 'S' to a good use (by default deletes the whole line and enters
+" insert mode). I find it more useful to delete the line *contents* and stay
+" in normal mode.
+nnoremap S S<Esc>
+
+" 'p' (paste after) and 'P' (paste before) feel weird to me
+nnoremap p P
+nnoremap P p
+
+" have Y behave analogously to D and C rather than to dd and cc 
+" (which is already done by yy):
+nnoremap Y y$
+
+" Insert new line below but do not enter insert mode
+"nnoremap o o<Esc>
+"nnoremap O O<Esc>
+
+" Switch ' (go to begining of marked line) and ` (go to exact mark location)
+nnoremap ' `
+nnoremap ` '
+
+" Use Windows style shortcut to save the buffer
+nnoremap <C-s> :w<CR>
+
+" Movement to beginning of line and end of line
+nmap H ^
+nmap L $
+
+" I keep hitting J by mistake, so let's get it out of the way
+" and use J and K for coarse movement
+"nnoremap <C-j> J
+"nnoremap <C-k> K 
+"" Coarse movement using J (down) and K (up)
+"nmap J 10j
+"nmap K 10k
+
+" Avoid typos when trying to go to command line mode
+nmap Q :
+
+" Use <leader>w to toggle line wrapping
+nmap <leader>w :set wrap!<CR>
+
+" ============================================================
+" MAPPINGS FOR VISUAL MODE
+" ============================================================
+
+" Replace current highlihted text with previous yank
+vnoremap p <Esc>:let current_reg = @"<CR>gvs<C-R>=current_reg<CR><Esc>
+
+" ============================================================
+" FILE NAVIGATION 
+" ============================================================
+
+" Alias <F3> for change between hearder and implementation files
+" (requires a.vim plugin)
+inoremap <F3> <ESC>:AT<CR>
+nnoremap <F3> :AT<CR>
+
+" Shortcut for file explorer
+inoremap <F2> <Esc>:Sexplore<CR>
+nnoremap <F2> :Sexplore<CR>
+
+" ============================================================
+" ADVANCED TRICKS
+" ============================================================
+
+" Use a mapping to go to an occurrence of the current word
+map <F5> [I:let nr = input("Which one: ") <Bar>exe "normal " . nr . "[\t"<CR>
+
+" Folding settings
+set foldmethod=indent " fold automatically by indentation level
+set foldnestmax=0 " just fold the first indent level
+set foldcolumn=2 " bar that shows + and - indicators
+
+" ============================================================
+" CTAGS AND RELATED PLUGINS
+" ============================================================
+
+" Mappings to toggle the visibility of the TagList
+nmap <F11> :TlistToggle<CR>
+imap <F11> <ESC>:TlistToggle<CR>
+
+" Go to tag (ctags must be run on the current dir or a parent dir)
+"
+" 1. Install Exuberant Ctags (http://ctags.sourceforge.net/)
+"
+" 2. chdir to the source code root folder and run:
+"
+"     $ /usr/local/bin/ctags -R *
+"
+nmap <F12> <C-]>
+nmap <S-F12> <C-T>
+
+" Rebuild tags file when saving the file
+"au BufWritePost *.c,*.m,*.h silent! !/usr/local/bin/ctags -R &
+
+" ============================================================
+" function commands
+" ============================================================
+" Open this file for edit in a new tab
+abbr config tabe ~/.vim/.vimrc
+abbr gconfig tabe ~/.vim/.gvimrc
+
