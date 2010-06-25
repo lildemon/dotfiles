@@ -3,9 +3,9 @@
 # Reload aliases
 alias reload='source ~/bin/dotfiles/bash/aliases'
 # Edit aliases
-alias ea='vim ~/bin/dotfiles/bash/aliases || reload'
+alias ea='vim ~/bin/dotfiles/bash/aliases && reload'
 # Edit Config
-alias ec='vim ~/bin/dotfiles/bash/config || source ~/bin/dotfiles/bash/config'
+alias ec='vim ~/bin/dotfiles/bash/config && source ~/bin/dotfiles/bash/config'
 
 ## Bash commands
 # some more ls aliases
@@ -32,6 +32,9 @@ alias tree3="tree -L 3"
 ## View history
 alias h="history"
 
+## run python2.6 in my vps
+alias p26="~/bin/python"
+
 ## Mercurial
 
 # edit patch series file
@@ -48,3 +51,5 @@ alias mvnnt='mvn -Dmaven.test.skip=true'
 
 # Mac OS X
 alias safari='open -a Safari'
+
+# test section
