@@ -3,9 +3,9 @@
 # Reload aliases
 alias reload='source ~/bin/dotfiles/bash/aliases'
 # Edit aliases
-alias ea='mvim -f ~/bin/dotfiles/bash/aliases && reload'
+alias ea='vim ~/bin/dotfiles/bash/aliases || reload'
 # Edit Config
-alias ec='mvim -f ~/bin/dotfiles/bash/config && source ~/bin/dotfiles/bash/config'
+alias ec='vim ~/bin/dotfiles/bash/config || source ~/bin/dotfiles/bash/config'
 
 ## Bash commands
 # some more ls aliases
