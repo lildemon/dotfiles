@@ -18,6 +18,10 @@ set expandtab
 set smarttab
 set ambiwidth=double
 
+set laststatus=2
+set statusline='%F%m%r%h%w\ [%{&ff}]\ [%Y]\ [%{(&fenc==\"\")?&enc:&fenc}%{(&bomb?\",BOM\":\"\")}]\ [POS=%l,%v][%p%%]\ %=[%{GitBranch()}]'
+set showcmd " 'sc' show (partial) command in status line
+
 " Format related
 set lbr
 "set fold+=mB
@@ -60,6 +64,15 @@ syntax on
 
 nmap <C-K> <C-W>k<C-W>_
 nmap <C-J> <C-W>j<C-W>_
+
+" VIM Tip: 上下移动一行或多行代码并自动调整缩进_drdr_xp_百度空间 http://goo.gl/3wt0
+nnoremap <C-k>  mz:m-2<cr>`z==
+nnoremap <C-j>  mz:m+<cr>`z==
+xnoremap <C-k>  :m'<-2<cr>gv=gv
+xnoremap <C-j>  :m'>+<cr>gv=gv
+
+set wildmenu   " 显示补全列表
+set wildmode=longest:full   " 补全行为设置
 
 set ignorecase " you nearly always want this
 set smartcase " use case-sensitive search if your search contains an uppercase characte

@@ -3,11 +3,11 @@
 # Reload aliases
 alias reload='source ~/bin/dotfiles/bash/aliases'
 # Edit aliases
-alias ea='vim ~/bin/dotfiles/bash/aliases && reload'
+alias ea='vim ~/bin/dotfiles/bash/aliases ; reload'
 # Edit Config
-alias ec='vim ~/bin/dotfiles/bash/config && source ~/bin/dotfiles/bash/config'
+alias ec='vim ~/bin/dotfiles/bash/config ; source ~/bin/dotfiles/bash/config'
 # Edit Environment
-alias ee='vim ~/bin/dotfiles/bash/env && source ~/bin/dotfiles/bash/env'
+alias ee='vim ~/bin/dotfiles/bash/env ; source ~/bin/dotfiles/bash/env'
 
 ## Bash commands
 # some more ls aliases
@@ -25,6 +25,7 @@ alias .....="cd ../../../.."
 
 ## SSH Connections
 alias sshtk="ssh -D 7777 ronhng@lildemon.net.ru"
+alias sshxrea="ssh -D 7777 fekyld@s170.xrea.com" #pw is jiarQ3NEEmvU
 
 ## Tree
 
@@ -53,5 +54,7 @@ alias mvnnt='mvn -Dmaven.test.skip=true'
 
 # Mac OS X
 alias safari='open -a Safari'
-
-# test section
+function mkdircd ()
+{
+    mkdir -p "$@" && eval cd "\"\$$#\"";
+}

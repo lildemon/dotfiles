@@ -11,7 +11,7 @@ export EDITOR=vim
 #export LANG=en_US.UTF-8
 
 ## Common folder path
-export CDPATH=$CDPATH:~/bin
+export CDPATH=$CDPATH:~/bin:~
 
 ## Python
 
