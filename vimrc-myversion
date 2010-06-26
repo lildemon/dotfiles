@@ -1,0 +1,150 @@
+" YOU SOUND HAVE TO LOOK AT ~/.gvimrc
+"nmap ,s :source $MYVIMRC
+"nmap ,v :e $MYVIMR
+
+
+"=============================================================================
+
+" General settings
+
+"=============================================================================
+
+set nocompatible
+
+set ruler
+set shiftwidth=4
+set tabstop=4
+set expandtab
+set smarttab
+set ambiwidth=double
+
+"Color section
+
+set laststatus=2
+"Deprecated.. set stl='%F%m%r%h%w\ [%{&ff}]\ [%Y]\ [%{(&fenc==\"\")?&enc:&fenc}%{(&bomb?\",BOM\":\"\")}]\ [POS=%l,%v][%p%%]\ %=[%{GitBranch()}]'
+set stl=%f\ %m\ %r\ Line:%l/%L[%p%%]\ Col:%c\ Buf:%n\ [%b][0x%B]\ %=[%{GitBranch()}]
+set showcmd " 'sc' show (partial) command in status line
+
+" Format related
+set lbr
+"set fold+=mB
+set number
+autocmd FileType text setlocal textwidth=78
+
+"set lines=36
+"set columns=82
+set autoindent
+
+" Editing 
+set backspace=indent,eol,start
+
+"set encoding=utf-8
+set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1 " 如果你要打开的文件编码不在此列，那就添加进去
+"set termencoding=utf-8
+
+set switchbuf=usetab  "With the set switchbuf=usetab option, you can tell Vim to first search the tab and window list for the requested buffer - if the buffer exists is in a window or tab, the focus goes right to that window.
+
+" :b<number> replaces the contents of the current window with the requested buffer; :gt moves to the next tab; and I configured <Leader>w to move to the next window (within a tab). That's a lot of options.
+"
+
+set ignorecase " you nearly always want this
+set smartcase " use case-sensitive search if your search contains an uppercase character
+set hls
+
+"光标在窗口上下边界时距离边界3行即开始滚屏
+set so=2
+syntax on
+
+
+" Maps to make handling windows a bit easier
+noremap <silent> ,h :wincmd h<CR>
+noremap <silent> ,j :wincmd j<CR>
+noremap <silent> ,k :wincmd k<CR>
+noremap <silent> ,l :wincmd l<CR>
+noremap <silent> ,ml <C-W>L
+noremap <silent> ,mk <C-W>K
+noremap <silent> ,mh <C-W>H
+noremap <silent> ,mj <C-W>J
+
+
+" Running file thru an external program (eg php)
+" map <F9> :w<CR>:!c:/php/php.exe %<CR>
+
+
+"# Inserting Carriage Returns
+":%s/nubian/<C-V><C-M>&/g : that's what you type
+":%s/nubian/<C-Q><C-M>&/g : for Win32
+":%s/nubian/^M&/g         : what you'll see where ^M is ONE character
+
+nmap <C-K> <C-W>k<C-W>_
+nmap <C-J> <C-W>j<C-W>_
+
+" VIM Tip: 上下移动一行或多行代码并自动调整缩进_drdr_xp_百度空间 http://goo.gl/3wt0
+nnoremap <C-k>  mz:m-2<cr>`z==
+nnoremap <C-j>  mz:m+<cr>`z==
+xnoremap <C-k>  :m'<-2<cr>gv=gv
+xnoremap <C-j>  :m'>+<cr>gv=gv
+
+set wildmenu   " 显示补全列表
+set wildmode=full   " 补全行为设置
+
+set ignorecase " you nearly always want this
+set smartcase " use case-sensitive search if your search contains an uppercase characte
+
+" section for closetag script
+let g:closetag_html_style=1
+" For all text files set 'textwidth' to 78 characters.
+
+
+" Abbs
+ab #b /************************************************
+ab #e ************************************************/
+ab #d #define
+ab #i #includ
+
+" Platform specified
+if has('unix') 
+
+" unix-like platform (including Cygwin) 
+    if has('mac')
+        if has('gui')
+            set toolbar=text
+            set guioptions-=T
+            set gfn=Monaco:h12.00
+            colorscheme default
+        endif
+    endif
+    source ~/.vim/scripts/closetag.vim "source closetag script
+
+else 
+
+    if (has("win32"))
+
+
+
+        "-------------------------------------------------------------------------
+
+        " Win32
+
+        "-------------------------------------------------------------------------
+
+        " probably Windows 
+        " Note: Ctrl-Q is block visual mode
+        " In insert mode, Ctrl-G s, is the surround function
+
+        source vimfiles/scripts/closetag.vim "source closetag script
+
+        set dir=c:\\tmp
+        set bdir=c:\\tmp
+
+        if has('gui')
+            set gfn=Consolas:h9
+        endif
+
+    endif
+
+    "End windows section
+endif 
+
+"set list "When the display is set into list mode all characters print. Tabs show up as ^I and the end of line shows up as $. 
+
