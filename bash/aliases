@@ -6,6 +6,8 @@ alias reload='source ~/bin/dotfiles/bash/aliases'
 alias ea='vim ~/bin/dotfiles/bash/aliases && reload'
 # Edit Config
 alias ec='vim ~/bin/dotfiles/bash/config && source ~/bin/dotfiles/bash/config'
+# Edit Environment
+alias ee='vim ~/bin/dotfiles/bash/env && source ~/bin/dotfiles/bash/env'
 
 ## Bash commands
 # some more ls aliases

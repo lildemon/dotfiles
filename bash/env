@@ -12,7 +12,7 @@ export EDITOR=vim
 
 ## Python
 
-export PYTHONDOCS="~/Documents/Reference/Python-Docs-2.5"
+#export PYTHONDOCS="~/Documents/Reference/Python-Docs-2.5"
 
 ## Java 
 
