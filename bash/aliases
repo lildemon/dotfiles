@@ -27,6 +27,8 @@ alias .....="cd ../../../.."
 alias sshtk="ssh -D 7777 ronhng@lildemon.net.ru"
 alias sshxrea="ssh -D 7777 fekyld@s170.xrea.com" #pw is jiarQ3NEEmvU
 
+## Use only one vim..http://vimeo.com/4446112
+alias g='mvim --remote-silent'
 ## Tree
 
 alias tree2="tree -L 2"
