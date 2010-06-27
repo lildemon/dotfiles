@@ -60,3 +60,7 @@ function mkdircd ()
 {
     mkdir -p "$@" && eval cd "\"\$$#\"";
 }
+
+function gitdiff() {
+  git diff --no-ext-diff -w "$@" | mvim -R -
+}

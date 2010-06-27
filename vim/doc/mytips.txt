@@ -1,0 +1,95 @@
+# vim: set filetype=help noreadonly modifiable
+# vim: set number
+
+*mytips.txt*   My own set of tips
+
+vim helps that I think I should dig in:
+
+|K|                K            lookup keyword under the cursor with
+                                   'keywordprg' program (default: "man")
+
+|CTRL-G|           CTRL-G       show current file name (with path) and cursor
+                                   position
+|ga|               ga           show ascii value of character under cursor in
+                                   decimal, hex, and octal
+|g8|               g8           for utf-8 encoding: show byte sequence for
+                                   character under cursor in hex.
+
+If you press CTRL-A, the editor inserts the text you typed the last time you
+were in Insert mode. The CTRL-@ command does a CTRL-A and then exits Insert mode.
+
+The CTRL-E command acts like CTRL-Y except it inserts the character below thecursor.
+
+        *yank-to-register* "vyiw
+        "v is the register specification, "yiw" is yank-inner-word. (inner word 和 word 有区别，后者是从当前位置算起 )
+
+        *paste-register* |CTRL-R| (R)egister 里的内容 " 存储的是默认的内容
+
+        *jump-wrap* 上下左右前加g，则不会跳过warp过的整个段落 比如 gk gj
+
+	▪	*mt-buffers* ( working with many) : http://vimeo.com/6306508
+        ⁃	switching buffer  :ls
+        ⁃	:ls[!]		Show all buffers.
+        ⁃	:bd[elete][!] Unload buffer [N] (default: current buffer) and delete it from the buffer list.Any windows for this buffer are closed.
+        ⁃	gt moves to the next tab
+        ⁃	:bufdo  :bfirst :bnext etc..
+        -    Delete all buffers
+            ,da :exec "1," . bufnr('$') . "bd"<cr>
+        
+	▪	" Edit the vimrc file
+        *editvimrc*      ,ev
+        *sourcevimrc*    ,sv
+	▪	*Window-manipulation* ,k  ,j  ,l  ,h
+        ⁃	,cj close down
+        ⁃	,ck close up
+        ⁃	,cc close current
+        ⁃	,cl ,ch
+        ⁃	,cw close quickfix
+        ⁃	<C-w>o make only one window
+        ⁃	<C-w>v vertical split
+        ⁃	<C-w>s horizontal split
+        ⁃	<C-w>b move to the bottom window
+        ⁃	<C-w>t move to the top window
+        ⁃	<C-w>p move to the previous window
+        ⁃	<C-w>p move to the previous window
+	▪	*mt-Arguments* : 
+        ⁃	:ar list arguments
+        ⁃	:wn write and start next
+*insert-mode*
+    ▪	*c-x-complete* : 
+        <C-x>l repeat whole line
+        <C-x>l whole line complietition
+        <C-t> indent right 光标在结尾也可以indent
+        <C-d> 与以上相反
+        <C-w> backspace over a word 向后删除一个字符串
+        <C-u> delete to beginning of indent (删除到indent的开头)
+        <C-y> repeat line above
+        <C-e> repeat line below
+
+
+    *Need-to-do*
+	•	map down arrow to gj and gk
+
+    *Need-to-know*
+        ▪	text-object ?
+        ▪	:set linebreak?
+        ▪	quickfix window?
+        ▪	用vim处理传入的字符？
+        ▪	NERDTree
+        ▪   command line 
+        ▪   spell check
+        ▪   gq formatting text
+        ▪   vim grep
+        ▪   remember cursor position
+    *Others*
+        Color-schemes
+        ▪The all-important gv sequence is also covered to help you re-select an area you just selected.
+        CTRL-W gf	Open a new tab page and edit the file name under the cursor.
+                See |CTRL-W_gf|.
+
+        CTRL-W gF	Open a new tab page and edit the file name under the cursor
+                and jump to the line number following the file name.
+                See |CTRL-W_gF|.
+#
+#
+# vim: set filetype=help

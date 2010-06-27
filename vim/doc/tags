@@ -1,4 +1,9 @@
 ConqueTerm	conque_term.txt	/*ConqueTerm*
+Need-to-do	mytips.txt	/*Need-to-do*
+Need-to-know	mytips.txt	/*Need-to-know*
+Others	mytips.txt	/*Others*
+Window-manipulation	mytips.txt	/*Window-manipulation*
+c-x-complete	mytips.txt	/*c-x-complete*
 conque_term-bugs	conque_term.txt	/*conque_term-bugs*
 conque_term-changelog	conque_term.txt	/*conque_term-changelog*
 conque_term-contribute	conque_term.txt	/*conque_term-contribute*
@@ -8,8 +13,16 @@ conque_term-todo	conque_term.txt	/*conque_term-todo*
 conque_term-usage	conque_term.txt	/*conque_term-usage*
 cs	surround.txt	/*cs*
 ds	surround.txt	/*ds*
+editvimrc	mytips.txt	/*editvimrc*
 i_CTRL-G_S	surround.txt	/*i_CTRL-G_S*
 i_CTRL-G_s	surround.txt	/*i_CTRL-G_s*
+insert-mode	mytips.txt	/*insert-mode*
+jump-wrap	mytips.txt	/*jump-wrap*
+mt-Arguments	mytips.txt	/*mt-Arguments*
+mt-buffers	mytips.txt	/*mt-buffers*
+mytips.txt	mytips.txt	/*mytips.txt*
+paste-register	mytips.txt	/*paste-register*
+sourcevimrc	mytips.txt	/*sourcevimrc*
 surround	surround.txt	/*surround*
 surround-author	surround.txt	/*surround-author*
 surround-customizing	surround.txt	/*surround-customizing*
@@ -21,5 +34,6 @@ surround.txt	surround.txt	/*surround.txt*
 vs	surround.txt	/*vs*
 yS	surround.txt	/*yS*
 ySS	surround.txt	/*ySS*
+yank-to-register	mytips.txt	/*yank-to-register*
 ys	surround.txt	/*ys*
 yss	surround.txt	/*yss*

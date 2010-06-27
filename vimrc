@@ -3,7 +3,6 @@
 "-----------------------------------------------------------------------------
 " Global Stuff
 "-----------------------------------------------------------------------------
-
 " Set filetype stuff to on
 filetype on
 filetype plugin on
@@ -231,7 +230,7 @@ nmap <silent> <C-o> 10zl
 nmap <silent> <C-i> 10zh
 
 " Highlight all instances of the current word under the cursor
-nmap <silent> ^ :setl hls<CR>:let @/="<C-r><C-w>"<CR>
+" nmap <silent> ^ :setl hls<CR>:let @/="<C-r><C-w>"<CR>
 
 " Search the current file for what's currently in the search
 " register and display matches
@@ -465,11 +464,62 @@ if has("gui_running")
     colorscheme xoria256
     if !exists("g:vimrcloaded")
         winpos 0 0
-        if  &diff
-            winsize 227 90
+        if  ! &diff
+            winsize 88  30
+        else
+            winsize 180 40
         endif
         let g:vimrcloaded = 1
     endif
 endif
 :nohls
+
+"-----------------------------------------------------------------------------
+" Auto-configs my on tips file 
+" From: http://djcraven5.blogspot.com/2006/10/mastering-vim-help-system.html 
+"-----------------------------------------------------------------------------
+autocmd BufWrite mytips.txt             :helptags ~/.vim/doc/
+
+nmap <leader>h :tabnew ~/.vim/doc/mytips.txt<CR>
+
+
+
+"-----------------------------------------------------------------------------
+" Restore cursor in previous eiting seesion
+" From: http://vim.wikia.com/wiki/Restore_cursor_to_file_position_in_previous_editing_session
+"-----------------------------------------------------------------------------
+
+" Tell vim to remember certain things when we exit
+"  '10 : marks will be remembered for up to 10 previously edited files
+"  "100 : will save up to 100 lines for each register
+"  :20 : up to 20 lines of command-line history will be remembered
+"  % : saves and restores the buffer list
+"  n... : where to save the viminfo files
+set viminfo='10,\"100,:20,%,n~/.viminfo
+
+" when we reload, tell vim to restore the cursor to the saved position
+augroup JumpCursorOnEdit
+ au!
+ autocmd BufReadPost *
+ \ if expand("<afile>:p:h") !=? $TEMP |
+ \ if line("'\"") > 1 && line("'\"") <= line("$") |
+ \ let JumpCursorOnEdit_foo = line("'\"") |
+ \ let b:doopenfold = 1 |
+ \ if (foldlevel(JumpCursorOnEdit_foo) > foldlevel(JumpCursorOnEdit_foo - 1)) |
+ \ let JumpCursorOnEdit_foo = JumpCursorOnEdit_foo - 1 |
+ \ let b:doopenfold = 2 |
+ \ endif |
+ \ exe JumpCursorOnEdit_foo |
+ \ endif |
+ \ endif
+ " Need to postpone using "zv" until after reading the modelines.
+ autocmd BufWinEnter *
+ \ if exists("b:doopenfold") |
+ \ exe "normal zv" |
+ \ if(b:doopenfold > 1) |
+ \ exe "+".1 |
+ \ endif |
+ \ unlet b:doopenfold |
+ \ endif
+augroup END
 

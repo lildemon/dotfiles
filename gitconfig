@@ -1,24 +1,12 @@
-[color]
-        ui = true
 [user]
 	name = Ron
 	email = ronhng@gmail.com
-[alias]
-        st = status
-        co = checkout
-        ci = commit
-        cim = commit -m
-        ciam = commit -a -m
-        br = branch
-        lg = log --pretty=format:'[%h] [%ad] %s'
-		graph = log --pretty=format:'%h %Cgreen %an: %Creset %s' --graph
-        w = whatchanged
-        diffc = diff --cached
-	last = log -1 HEAD
-	unstage = reset HEAD --
+[core]
+	editor = mvim -f
 
-[merge]
-    tool = extMerge
-[mergetool "extMerge"]
-    cmd = extMerge "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
-    trustExitCode = false
+# Git Diff with Vimdiff « Jonathan’s Techno-tales http://goo.gl/cqeY
+[diff]
+    external = git_diff_wrapper
+
+[pager]
+    diff =
