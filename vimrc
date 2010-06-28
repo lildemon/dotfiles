@@ -225,6 +225,13 @@ noremap <silent> ,bd :bd<CR>
 nmap <silent> ,ev :e $MYVIMRC<CR>
 nmap <silent> ,sv :so $MYVIMRC<CR>
 
+" map keys to jump
+nmap j gj
+nmap k gk
+nmap l gl
+nmap h gh
+" The value of 'showbreak' is used to put in front of wrapped lines.
+ 
 " Make horizontal scrolling easier
 nmap <silent> <C-o> 10zl
 nmap <silent> <C-i> 10zh
