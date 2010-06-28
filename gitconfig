@@ -6,7 +6,7 @@
 
 # Git Diff with Vimdiff « Jonathan’s Techno-tales http://goo.gl/cqeY
 [diff]
-    external = git_diff_wrapper
+    external = ~/bin/dotfiles/utils/git_diff_wrapper
 
 [pager]
     diff =
