@@ -523,3 +523,8 @@ augroup JumpCursorOnEdit
  \ endif
 augroup END
 
+" VIM Tip: 上下移动一行或多行代码并自动调整缩进_drdr_xp_百度空间 http://goo.gl/3wt0
+nnoremap <C-k>  mz:m-2<cr>`z==
+nnoremap <C-j>  mz:m+<cr>`z==
+xnoremap <C-k>  :m'<-2<cr>gv=gv
+xnoremap <C-j>  :m'>+<cr>gv=gv
