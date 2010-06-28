@@ -1,0 +1,3 @@
+*git-branch*
+    git branch branchname 根据commit来建立分支(不是index或者working tree)
+
