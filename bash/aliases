@@ -35,7 +35,14 @@ alias tree2="tree -L 2"
 alias tree3="tree -L 3"
 
 ## View history
-alias h="history"
+function h() {
+    if [ -z "$1" ]
+    then
+        history
+    else
+        history | grep "$@"
+    fi
+}
 
 ## run python2.6 in my vps
 alias p26="~/bin/python"

@@ -1,3 +1,4 @@
+vim: set filetype=help
 # vim: set filetype=help noreadonly modifiable
 # vim: set number
 
