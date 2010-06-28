@@ -228,9 +228,9 @@ nmap <silent> ,sv :so $MYVIMRC<CR>
 " map keys to jump
 nmap j gj
 nmap k gk
-nmap l gl
-nmap h gh
 " The value of 'showbreak' is used to put in front of wrapped lines.
+" Dealing with sudo
+cmap w!! w !sudo tee %
  
 " Make horizontal scrolling easier
 nmap <silent> <C-o> 10zl
