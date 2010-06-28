@@ -71,6 +71,10 @@ The CTRL-E command acts like CTRL-Y except it inserts the character below thecur
         <leader>[bv, bs] open hori or vert 
 
 
+    *Help-system*
+        :helpg search the help files
+        :cn next find
+        :cwin list all finds
     *Need-to-do*
 	•	map down arrow to gj and gk
 
@@ -81,6 +85,11 @@ The CTRL-E command acts like CTRL-Y except it inserts the character below thecur
         ▪	用vim处理传入的字符？
         ▪	NERDTree
         ▪   command line 
+            <C-u> <C-k> <M-Backspace> 
+            <C-f> <C-b> <M-F> <M-b> do as usual
+            <C-r><C-w> paste under cursor's char
+            <C-w><C-a> paste under cursor's string
+            <C-w><reg> paste specific register
         ▪   spell check
         ▪   gq formatting text
         ▪   vim grep

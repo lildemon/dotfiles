@@ -469,6 +469,7 @@ iab Fone      Phone
 if has("gui_running")
     set guifont=Monaco:h12
     colorscheme xoria256
+    set macmeta   
     if !exists("g:vimrcloaded")
         winpos 0 0
         if  ! &diff
@@ -535,3 +536,12 @@ nnoremap <C-k>  mz:m-2<cr>`z==
 nnoremap <C-j>  mz:m+<cr>`z==
 xnoremap <C-k>  :m'<-2<cr>gv=gv
 xnoremap <C-j>  :m'>+<cr>gv=gv
+
+" Command Line Stuff (to match bash behavior)
+:cnoremap <M-b> <S-Left>
+:cnoremap <M-f> <S-Right>
+:cnoremap <C-d> <Del>
+:cnoremap <M-d> <C-Del>
+:cnoremap <M-BS> <C-W>
+
+" Test Section
