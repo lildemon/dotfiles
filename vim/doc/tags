@@ -3,6 +3,7 @@ Need-to-do	mytips.txt	/*Need-to-do*
 Need-to-know	mytips.txt	/*Need-to-know*
 Others	mytips.txt	/*Others*
 Window-manipulation	mytips.txt	/*Window-manipulation*
+buf-explorer	mytips.txt	/*buf-explorer*
 bufexplorer	bufexplorer.txt	/*bufexplorer*
 bufexplorer-changelog	bufexplorer.txt	/*bufexplorer-changelog*
 bufexplorer-credits	bufexplorer.txt	/*bufexplorer-credits*
@@ -36,6 +37,7 @@ g:bufExplorerSortBy	bufexplorer.txt	/*g:bufExplorerSortBy*
 g:bufExplorerSplitBelow	bufexplorer.txt	/*g:bufExplorerSplitBelow*
 g:bufExplorerSplitOutPathName	bufexplorer.txt	/*g:bufExplorerSplitOutPathName*
 g:bufExplorerSplitRight	bufexplorer.txt	/*g:bufExplorerSplitRight*
+gv	mytips.txt	/*gv*
 i_CTRL-G_S	surround.txt	/*i_CTRL-G_S*
 i_CTRL-G_s	surround.txt	/*i_CTRL-G_s*
 insert-mode	mytips.txt	/*insert-mode*

@@ -66,6 +66,9 @@ The CTRL-E command acts like CTRL-Y except it inserts the character below thecur
         <C-u> delete to beginning of indent (删除到indent的开头)
         <C-y> repeat line above
         <C-e> repeat line below
+*buf-explorer*
+        <leader>be  open bufferexplorer
+        <leader>[bv, bs] open hori or vert 
 
 
     *Need-to-do*
@@ -81,10 +84,10 @@ The CTRL-E command acts like CTRL-Y except it inserts the character below thecur
         ▪   spell check
         ▪   gq formatting text
         ▪   vim grep
-        ▪   remember cursor position
+        ▪   regex and searching
     *Others*
         Color-schemes
-        ▪The all-important gv sequence is also covered to help you re-select an area you just selected.
+        ▪The all-important *gv* sequence is also covered to help you re-select an area you just selected.
         CTRL-W gf	Open a new tab page and edit the file name under the cursor.
                 See |CTRL-W_gf|.
 
