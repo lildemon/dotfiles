@@ -233,8 +233,8 @@ nmap k gk
 cmap w!! w !sudo tee %
  
 " Make horizontal scrolling easier
-nmap <silent> <C-o> 10zl
-nmap <silent> <C-i> 10zh
+" nmap <silent> <C-o> 10zl
+" nmap <silent> <C-i> 10zh
 
 " Highlight all instances of the current word under the cursor
 " nmap <silent> ^ :setl hls<CR>:let @/="<C-r><C-w>"<CR>

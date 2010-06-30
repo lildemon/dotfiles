@@ -90,6 +90,9 @@ The CTRL-E command acts like CTRL-Y except it inserts the character below thecur
             <C-r><C-w> paste under cursor's char
             <C-w><C-a> paste under cursor's string
             <C-w><reg> paste specific register
+            Open the command line window with this command: >
+
+                q:
         ▪   spell check
         ▪   gq formatting text
         ▪   vim grep

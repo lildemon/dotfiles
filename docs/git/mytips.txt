@@ -1,3 +1,8 @@
 *git-branch*
     git branch branchname 根据commit来建立分支(不是index或者working tree)
 
+
+
+*使用port 命令安装git*
+sudo port install -u git-core +bash_completion +doc +svn
+
