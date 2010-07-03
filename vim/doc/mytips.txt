@@ -70,6 +70,27 @@ The CTRL-E command acts like CTRL-Y except it inserts the character below thecur
         <leader>be  open bufferexplorer
         <leader>[bv, bs] open hori or vert 
 
+*t-abs*
+         You can put ":tab" before any Ex command that opens a window.  The window will be opened in a new tab page.  Another example: >
+
+	:tab help gt                   
+
+    so, this will work with buffers too.
+    :tab sb 5
+    Than I created a alternative
+    :Tb5
+    To close a tab:
+    ,ct
+        
+*multiple-files*
+    :wnext is the command we use to both write the current file and move on to the next one in the :args list.
+    :help @ lets us run the macro that we recorded.
+
+*uppercase*
+gU{motion}		Make {motion} text uppercase. {not in Vi}
+{Visual}U		Make highlighted text uppercase (for {Visual} see
+g~{motion}		Switch case of {motion} text. {not in Vi}
+g~~			Switch case of current line. {not in Vi}.
 
     *Help-system*
         :helpg search the help files

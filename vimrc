@@ -231,6 +231,9 @@ nmap k gk
 " The value of 'showbreak' is used to put in front of wrapped lines.
 " Dealing with sudo
 cmap w!! w !sudo tee %
+
+" Line break a word
+set linebreak
  
 " Make horizontal scrolling easier
 " nmap <silent> <C-o> 10zl
@@ -390,10 +393,10 @@ nmap ,ft :FuzzyFinderTag<CR>
 "-----------------------------------------------------------------------------
 " UltiSnips Settings
 "-----------------------------------------------------------------------------
-set runtimepath+=~/.vim/ultisnips
-let g:UltiSnipsExpandTrigger="<c-9>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+"set runtimepath+=~/.vim/ultisnips
+"let g:UltiSnipsExpandTrigger="<c-9>"
+"let g:UltiSnipsJumpForwardTrigger="<c-j>"
+"let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 "-----------------------------------------------------------------------------
 " Functions
@@ -543,5 +546,9 @@ xnoremap <C-j>  :m'>+<cr>gv=gv
 :cnoremap <C-d> <Del>
 :cnoremap <M-d> <C-Del>
 :cnoremap <M-BS> <C-W>
+
+" Create new tab with specific buffer
+command -nargs=1 -complete=buffer Tb :tab sb <args>
+noremap <silent> ,ct :tabc<CR>
 
 " Test Section
