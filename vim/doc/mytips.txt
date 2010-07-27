@@ -96,6 +96,9 @@ g~~			Switch case of current line. {not in Vi}.
         :helpg search the help files
         :cn next find
         :cwin list all finds
+
+    *save-as* 直接使用:w 保存文件后还是no name, 可以使用sav命令解决问题
+
     *Need-to-do*
 	•	map down arrow to gj and gk
 
@@ -127,6 +130,26 @@ g~~			Switch case of current line. {not in Vi}.
         CTRL-W gF	Open a new tab page and edit the file name under the cursor
                 and jump to the line number following the file name.
                 See |CTRL-W_gF|.
-#
+
+        ▪在当前位置增加或者擅删除一行：
+        <A-j> :set paste<CR>m`o<Esc>``:set nopaste<CR>
+        <A-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
+
+        *jump-list*: <C-o>, 或者 :ju
+        *textobj* surround
+            at			"a tag block"
+            it			"inner tag block"
+            yss operates on the current line
+            yS and ySS which indent the surrounded text and place it
+            on a line of its own.
+            cst, yst  等等是针对tag的
+        *C-c 的问题*
+            当使用C-c而不是esc的时候，不会发生abbrv expansion，详见:h ctrl-c
+        *vim autoindent - How to un-indent a line in vim*
+
+        ^d
+        
+        
+    #
 #
 # vim: set filetype=help
