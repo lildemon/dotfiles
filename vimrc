@@ -1,3 +1,4 @@
+
 " This file is came from http://www.derekwyatt.org/vim/the-vimrc-file/my-vimrc-file/
 " I also got a copy of this page in my ronhng dropbox account
 "-----------------------------------------------------------------------------
@@ -11,6 +12,20 @@ filetype indent on
 " Tabstops are 4 spaces
 set tabstop=4
 set shiftwidth=4
+
+" Set file encodings: encoding(enc) vim尝试转换到这种编码显示（默认读取locale）
+" fileencodings(fencs)
+" 编码列表，读取文件时根据这个顺序检测文件的编码，如果没有转换成功？
+" fileencoding(fenc)文件当前使用的编码（扩展：转换编码的插件），新建文件
+" 设置文件编码
+set fenc=utf-8
+" 设置文件编码检测类型及支持格式
+set fencs=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
+
+" 高亮当前行
+set cursorline
+" 修改颜色
+colorscheme ir_black
 
 " set the search scan to wrap lines
 set wrapscan
@@ -34,6 +49,9 @@ set vb
 
 " Allow backspacing over indent, eol, and the start of an insert
 set backspace=2
+
+" Set to autoindent
+set autoindent
 
 " Make sure that unsaved buffers that are to be put in the background are
 " allowed to go in there (ie. the "must save first" error doesn't come up)
@@ -534,13 +552,31 @@ augroup JumpCursorOnEdit
  \ endif
 augroup END
 
+" 修复Terminal.app 的 Meta key
+" http://vim.wikia.com/wiki/Fix_meta-keys_that_break_out_of_Insert_mode
+for i in range(65,90) + range(97,122)
+    let c = nr2char(i)
+    exec "map \e".c." <M-".c.">"
+    exec "map! \e".c." <M-".c.">"
+endfor
+
 " VIM Tip: 上下移动一行或多行代码并自动调整缩进_drdr_xp_百度空间 http://goo.gl/3wt0
 nnoremap <C-k>  mz:m-2<cr>`z==
 nnoremap <C-j>  mz:m+<cr>`z==
-xnoremap <C-k>  :m'<-2<cr>gv=gv
+" 一下是在Visual下的情况
+xnoremap <C-k>  :m'<-2<cr>gv=gv 
 xnoremap <C-j>  :m'>+<cr>gv=gv
 
-" Command Line Stuff (to match bash behavior)
+" 在当前位置的上（下）方增加，删除一行
+"nnoremap <silent><M-j> :set paste<CR>m`o<Esc>``:set nopaste<CR>
+"nnoremap <silent><M-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
+:set <M-j>=^]j
+nnoremap <M-j> :set paste<CR>m`o<Esc>``:set nopaste<CR>
+nnoremap <M-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
+
+
+" Command Line Stuff (to match bash behavior) 模仿bash的行为
+" 用 p: 调出历史菜单
 :cnoremap <M-b> <S-Left>
 :cnoremap <M-f> <S-Right>
 :cnoremap <C-d> <Del>
@@ -550,5 +586,6 @@ xnoremap <C-j>  :m'>+<cr>gv=gv
 " Create new tab with specific buffer
 command -nargs=1 -complete=buffer Tb :tab sb <args>
 noremap <silent> ,ct :tabc<CR>
+
 
 " Test Section

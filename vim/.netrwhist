@@ -1,3 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =1
-let g:netrw_dirhist_1='/Users/Ronhng'
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/Users/Ronhng/bin/dotfiles_bak'
+let g:netrw_dirhist_2='/Users/Ronhng/bin/dotfiles_bak/vim-original'
+let g:netrw_dirhist_3='/Users/Ronhng/Desktop/dummies/java/testPerson'
+let g:netrw_dirhist_4='/Users/Ronhng/Desktop/dummies/java/Array'

@@ -1,9 +1,13 @@
+M-*, * Expansion
+M-^, History Expansion
 M-3, M-C-y Insert 3rd arg to the previous command at point
 S, M-* List all the possible completions of the text starting with 'S'
 M-.	Yank the last argument in previous command
 C-_ or C-x C-u  undo
 C-x C-e edit in an editor
 M-& tilde Expansion
+
+!?string?:* !998:2*  除了第一个参数的参数。。。
 
 
 
